@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { getFunName } from '../helpers';
 
 class StorePicker extends React.Component {
@@ -16,8 +16,10 @@ class StorePicker extends React.Component {
 		// 1. we stop default action when submitting form
 		e.preventDefault();
 
+		console.log(this.myInput.current.value)
+
 		// 2. we grab value from the input
-		const storeName = this.myInput.value.value;
+		const storeName = this.myInput.current.value;
 
 		// 3. change the page to /store/whatever-they-entered
 		this.props.history.push(`/store/${storeName}`);
@@ -26,22 +28,19 @@ class StorePicker extends React.Component {
 	}
 
 	render() {
-		console.log(this);
 		return (
-			<Fragment>
-				<form action="" className="store-selector" onSubmit={this.goToStore}>
-					<h2>Please Enter A Store</h2>
+			<form action="" className="store-selector" onSubmit={this.goToStore}>
+				<h2>Please Enter A Store</h2>
 
-					<input type="text" 
-						placeholder="Store Name"
-						ref={this.myInput} 
-						required 
-						defaultValue={ getFunName() }
-					/>
+				<input type="text" 
+					placeholder="Store Name"
+					ref={this.myInput} 
+					required 
+					defaultValue={ getFunName() }
+				/>
 
-					<button type="submit">Visit Store → </button>
-				</form>	
-			</Fragment>
+				<button type="submit">Visit Store → </button>
+			</form>
 			
 		);
 	}

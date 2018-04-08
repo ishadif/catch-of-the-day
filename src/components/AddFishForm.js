@@ -12,11 +12,11 @@ class AddFishForm extends React.Component {
         event.preventDefault();
 
         const fish = {
-            name: this.nameRef.value.value,
-            status: this.statusRef.value.value,
-            price: this.priceRef.value.value,
-            desc: this.descRef.value.value,
-            image: this.imageRef.value.value,
+            name: this.nameRef.current.value,
+            status: this.statusRef.current.value,
+            price: this.priceRef.current.value,
+            desc: this.descRef.current.value,
+            image: this.imageRef.current.value,
         }
 
         // this is how we pass our data up into parent component through props, in this case App component
